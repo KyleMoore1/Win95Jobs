@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'MS Sans Serif';
+  src: url('https://unpkg.com/98.css@0.1.20/dist/ms_sans_serif.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MS Sans Serif';
+  src: url('https://unpkg.com/98.css@0.1.20/dist/ms_sans_serif_bold.woff2') format('woff2');
+  font-weight: bold;
+}
+
+@layer base {
+  body {
+    @apply bg-[#008080] font-['MS_Sans_Serif'];
+  }
+
+  select {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-image: none !important;
+  }
+
+  select::-ms-expand {
+    display: none !important;
+  }
+}
+
+@layer components {
+  .win95-window {
+    @apply bg-[#C0C0C0] border-t-[#FFFFFF] border-l-[#FFFFFF] border-b-[#000000] border-r-[#000000] border-2;
+  }
+
+  .win95-button {
+    @apply win95-window px-4 py-1 active:border-t-[#000000] active:border-l-[#000000] active:border-b-[#FFFFFF] active:border-r-[#FFFFFF];
+  }
+
+  .win95-button-static {
+    @apply win95-window px-1 py-1 cursor-default;
+  }
+
+  .win95-inset {
+    @apply border-t-[#808080] border-l-[#808080] border-b-[#FFFFFF] border-r-[#FFFFFF] border-2 bg-white;
+  }
+
+  .win95-select {
+    @apply bg-[#FFFFFF] text-black relative cursor-pointer z-10;
+    @apply border-t-[#808080] border-l-[#808080] border-b-[#FFFFFF] border-r-[#FFFFFF] border-2;
+    @apply pl-1 pr-6 py-[2px];
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14 4H2V6H14V4ZM14 7H2V9H14V7ZM2 10H14V12H2V10Z' fill='black'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 2px center !important;
+    background-size: 16px !important;
+  }
+
+  .win95-select:focus {
+    @apply outline-none;
+  }
+
+  .win95-select option {
+    @apply bg-white text-black py-1;
+  }
+
+  .taskbar {
+    @apply fixed bottom-0 left-0 right-0 h-10 win95-window flex items-center px-1 gap-1;
+  }
+
+  .start-button {
+    @apply win95-button bg-[#C0C0C0] h-[34px] flex items-center gap-2 font-bold;
+  }
+
+  .start-button.active {
+    @apply border-t-[#000000] border-l-[#000000] border-b-[#FFFFFF] border-r-[#FFFFFF];
+  }
+
+  .vertical-text {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+}
